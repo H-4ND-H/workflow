@@ -12,7 +12,7 @@ add_subdirectory(app)
 add_subdirectory(test)
 
 if(MSVC)
-  target_compile_options(${ProjName} PRIVATE /W4 /WX)
+  target_compile_options(${ProjName} PRIVATE /W4 /WX /EnableCodeCoverage)
 else()
   target_compile_options(${ProjName} PRIVATE -Wall -Wextra -Wshadow -Wconversion -Wpedantic -Werror)
 endif()
