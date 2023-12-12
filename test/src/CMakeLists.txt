@@ -1,6 +1,14 @@
 set(ProjName test)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ../)
+
+foreach( OUTPUTCONFIG ${CMAKE_CONFIGURATION_TYPES} )
+    string( TOUPPER ${OUTPUTCONFIG} OUTPUTCONFIG )
+    set( CMAKE_RUNTIME_OUTPUT_DIRECTORY_${OUTPUTCONFIG}  ../ )
+    set( CMAKE_LIBRARY_OUTPUT_DIRECTORY_${OUTPUTCONFIG}  ../ )
+    set( CMAKE_ARCHIVE_OUTPUT_DIRECTORY_${OUTPUTCONFIG}  ../ )
+endforeach( OUTPUTCONFIG CMAKE_CONFIGURATION_TYPES )
+
 include_directories(../include)
 add_executable(${ProjName} testMain.cpp Foo.cpp)
 
